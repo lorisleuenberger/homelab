@@ -51,7 +51,7 @@ services:
     restart: unless-stopped
 
   sonarr:
-    image: linuxserver/sonarr
+    image: linuxserver/sonarr:4.0.16
     container_name: sonarr
     ports:
       - 8989:8989
@@ -66,7 +66,7 @@ services:
     restart: unless-stopped
 
   radarr:
-    image: linuxserver/radarr
+    image: linuxserver/radarr:6.0.4
     container_name: radarr
     ports:
       - 7878:7878
@@ -81,7 +81,7 @@ services:
     restart: unless-stopped
 
   prowlarr:
-    image: linuxserver/prowlarr
+    image: linuxserver/prowlarr:2.3.0
     container_name: prowlarr
     ports:
       - 9696:9696
