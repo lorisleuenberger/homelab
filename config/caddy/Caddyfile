@@ -1,0 +1,25 @@
+media.leulor.com {
+    reverse_proxy jellyfin:8096
+}
+
+# local
+media.leulor.lan {
+    tls internal
+    reverse_proxy jellyfin:8096
+}
+radarr.leulor.lan {
+    tls internal
+    reverse_proxy radarr:7878
+}
+prowlarr.leulor.lan {
+    tls internal
+    reverse_proxy prowlarr:9696
+}
+qbit.leulor.lan {
+    tls internal
+    reverse_proxy gluetun:8080
+}
+sonarr.leulor.lan {
+    tls internal
+    reverse_proxy sonarr:8989
+}
