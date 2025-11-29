@@ -1,8 +1,13 @@
-# Mediastack for homelab
+# Homelab Stack for managing and monitoring dockerized services
+This repo consists of several services, and corresponding tools to monitor
+and manage said services. They are all divided into subfolders with docker-compose files
+
+## todo's
+- check jellyfin/jellyfin vs linuxserver/jellyfin
+
+## Mediastack (folder: media)
 This is a fully dockerized arr-stack, used to download and managa various media,
 fully setup to use a vpn with portforwarding to download torrents
-
-## Setup Steps
 
 ### Qbittorrent
 - Check `docker compose logs qbitttorrent` for temporary login info. Should look like this:

@@ -1,3 +1,13 @@
-config/*/**
-.env
-!config/caddy/Caddyfile
+media/config/*/**
+media/.env
+!media/config/caddy/Caddyfile
+
+collaboration/config/**
+!collaboration/config/config.json
+collaboration/data/**
+!collaboration/data/.gitkeep
+collaboration/db/**
+!collaboration/db/.gitkeep
+collaboration/logs/**
+!collaboration/logs/.gitkeep
+collaboration/.env

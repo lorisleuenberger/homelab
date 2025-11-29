@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:15
+    container_name: mattermost-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: mattermost
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    networks:
+      - mattermost-net
+
+  app:
+    image: mattermost/mattermost-team-edition:latest
+    container_name: mattermost-app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8065:8065"
+    environment:
+      MM_SQLSETTINGS_DRIVERNAME: postgres
+      MM_SQLSETTINGS_DATASOURCE: >-
+        postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/mattermost?sslmode=disable&connect_timeout=10
+      MM_SERVICESETTINGS_SITEURL: "http://DEINE_SERVER_IP:8065"
+      MM_CONFIG: "/mattermost/config/config.json"
+    volumes:
+      - ./data:/mattermost/data
+      - ./config:/mattermost/config
+      - ./logs:/mattermost/logs
+    networks:
+      - mattermost-net
+
+networks:
+  mattermost-net:
+    driver: bridge
