@@ -24,7 +24,7 @@ services:
       MM_SQLSETTINGS_DRIVERNAME: postgres
       MM_SQLSETTINGS_DATASOURCE: >-
         postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/mattermost?sslmode=disable&connect_timeout=10
-      MM_SERVICESETTINGS_SITEURL: "http://DEINE_SERVER_IP:8065"
+      MM_SERVICESETTINGS_SITEURL: ${MM_SITEURL}
       MM_CONFIG: "/mattermost/config/config.json"
     volumes:
       - ./data:/mattermost/data
