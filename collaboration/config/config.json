@@ -595,6 +595,23 @@
         "Directory": "./plugins",
         "ClientDirectory": "./client/plugins",
         "Plugins": {
+            "github": {
+                "connecttoprivatebydefault": false,
+                "enablecodepreview": "public",
+                "enableleftsidebar": true,
+                "enableprivaterepo": false,
+                "enablewebhookeventlogging": false,
+                "encryptionkey": "Xey1c9U+YQMAW/sfdqAOg2unY5759C72",
+                "enterprisebaseurl": "",
+                "enterpriseuploadurl": "",
+                "getnotificationfordraftprs": false,
+                "githuboauthclientid": "",
+                "githuboauthclientsecret": "",
+                "githuborg": "",
+                "showauthorincommitnotification": false,
+                "usepreregisteredapplication": false,
+                "webhooksecret": "gJ+o3+mLTqXUwlix+J0rp9hiUPNGEiPh"
+            },
             "mattermost-ai": {
                 "allowedUpstreamHostnames": "",
                 "bots": null,
@@ -634,6 +651,9 @@
                 "Enable": true
             },
             "com.mattermost.nps": {
+                "Enable": true
+            },
+            "github": {
                 "Enable": true
             },
             "mattermost-ai": {
