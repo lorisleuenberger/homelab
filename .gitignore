@@ -1,3 +1,5 @@
+**.swp
+
 media/config/*/**
 media/.env
 !media/config/caddy/Caddyfile
@@ -11,3 +13,6 @@ collaboration/db/**
 collaboration/logs/**
 !collaboration/logs/.gitkeep
 collaboration/.env
+
+pihole/etc-pihole/**
+!pihole/etc-pihole/pihole.toml
