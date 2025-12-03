@@ -24,3 +24,14 @@ fully setup to use a vpn with portforwarding to download torrents
 - Add your OPENVPN credentials to the .env (copy the .env.example if you didn't already)
   portforwarding should work out of the box, see `docker compose logs gluetun` for details
 
+## Collaboration / Messaging (folder: collaboration)
+Mattermost is used, to get automated alerts from the monitoring.
+It can also be used for all things communication in the team (hence collaboration)
+
+### Setup
+Before doing `docker compose up -d`, be sure to create the following folders / permissions:
+
+`sudo mkdir -p config data logs
+sudo touch config/config.json
+sudo chown -R 2000:2000 config data logs`
+
