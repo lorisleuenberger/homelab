@@ -4,14 +4,10 @@ media/config/*/**
 media/.env
 !media/config/caddy/Caddyfile
 
-collaboration/config/**
-!collaboration/config/config.json
-collaboration/data/**
-!collaboration/data/.gitkeep
-collaboration/db/**
-!collaboration/db/.gitkeep
-collaboration/logs/**
-!collaboration/logs/.gitkeep
+collaboration/config
+collaboration/data
+collaboration/db
+collaboration/logs
 collaboration/.env
 
 pihole/.env
