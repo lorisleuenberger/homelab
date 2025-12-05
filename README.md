@@ -9,6 +9,9 @@ and manage said services. They are all divided into subfolders with docker-compo
 This is a fully dockerized arr-stack, used to download and managa various media,
 fully setup to use a vpn with portforwarding to download torrents
 
+### Env variables
+- Copy the env example `cp .env.example .env` and set variables
+
 ### Qbittorrent
 - Check `docker compose logs qbitttorrent` for temporary login info. Should look like this:
   `qbittorrent  | ******** Information ********
@@ -23,6 +26,20 @@ fully setup to use a vpn with portforwarding to download torrents
 - Setup an OPENVPN config with portforwarding (f.e. proton)
 - Add your OPENVPN credentials to the .env (copy the .env.example if you didn't already)
   portforwarding should work out of the box, see `docker compose logs gluetun` for details
+
+### Prowlarr
+- Open Prowlarr (http://your_host:9696) and do the initial configuration
+- Click add Indexer, add your Indexer (duh)
+- Do the radarr and sonarr steps before going further here
+- In radarr or sonarr, go to Settings->General and copy the API Key
+- Back in prowlarr, go to Settings->Apps and add radarr/sonarr, paste in the API Key, replace localhost with the docker container names (radarr,prowlarr,sonarr)
+
+### Radarr / Sonarr
+Tese to are functionaly the same, just for different purposes (radarr->movies, sonarr->series)
+- Open Radarr(http://your_host:7878) or Sonarr(http://your_host:8989) and do the initial configuration
+- Go to Settings->DownloadClients, add qBittorrent. Important: if you use gluetun, write gluetun in the hostname, else use qbittorrent
+- @todo continue here, add media folder etc.
+
 
 ## Collaboration / Messaging (folder: collaboration)
 Mattermost is used, to get automated alerts from the monitoring.
