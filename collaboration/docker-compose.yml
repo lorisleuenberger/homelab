@@ -2,7 +2,7 @@ services:
   db:
     image: postgres:15
     container_name: mattermost-db
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -15,7 +15,7 @@ services:
   app:
     image: mattermost/mattermost-team-edition:latest
     container_name: mattermost-app
-    restart: always
+    restart: unless-stopped
     depends_on:
       - db
     ports:
