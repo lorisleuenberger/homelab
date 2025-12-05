@@ -1,6 +1,7 @@
 **.swp
 
 media/config/*/**
+media/media
 media/.env
 !media/config/caddy/Caddyfile
 

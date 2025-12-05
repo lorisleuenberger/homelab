@@ -33,7 +33,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - ./config/qbittorrent:/config
-      - /media/downloads:/downloads
+      - ${MEDIA_FOLDER:-./media}/downloads:/downloads
     restart: unless-stopped
 
   jellyfin:
@@ -47,7 +47,7 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ./config/jellyfin:/config
-      - /media:/media  # reuse downloads as media library
+      - ${MEDIA_FOLDER:-./media}:/media  # reuse downloads as media library
     restart: unless-stopped
 
   sonarr:
@@ -61,8 +61,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ./config/sonarr:/config
-      - /media/series:/series
-      - /media/downloads:/downloads
+      - ${MEDIA_FOLDER:-./media}/series:/series
+      - ${MEDIA_FOLDER:-./media}/downloads:/downloads
     restart: unless-stopped
 
   radarr:
@@ -76,8 +76,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ./config/radarr:/config
-      - /media/movies:/movies
-      - /media/downloads:/downloads
+      - ${MEDIA_FOLDER:-./media}/movies:/movies
+      - ${MEDIA_FOLDER:-./media}/downloads:/downloads
     restart: unless-stopped
 
   prowlarr:
@@ -104,8 +104,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ./config/bazarr:/config
-      - /media/downloads:/downloads
-      - /media/movies:/movies
+      - ${MEDIA_FOLDER:-./media}/downloads:/downloads
+      - ${MEDIA_FOLDER:-./media}/movies:/movies
     restart: unless-stopped
 
   caddy:
