@@ -1,6 +1,9 @@
 media.leulor.com {
     reverse_proxy jellyfin:8096
 }
+radarr.leulor.com {
+    reverse_proxy radarr:7878
+}
 
 # local
 media.leulor.lan {
