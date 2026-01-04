@@ -38,7 +38,10 @@ fully setup to use a vpn with portforwarding to download torrents
 Tese to are functionaly the same, just for different purposes (radarr->movies, sonarr->series)
 - Open Radarr(http://your_host:7878) or Sonarr(http://your_host:8989) and do the initial configuration
 - Go to Settings->DownloadClients, add qBittorrent. Important: if you use gluetun, write gluetun in the hostname, else use qbittorrent
-- @todo continue here, add media folder etc.
+- Go to Settings->MediaManagement, add the root folders (/movies and /series) respectively
+
+### Jellyfin
+- The Setup starts automatically once you open the WebUI, add the movies/series folder and you're good to go
 
 
 ## Collaboration / Messaging (folder: collaboration)
