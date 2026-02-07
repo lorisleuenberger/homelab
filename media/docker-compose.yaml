@@ -24,6 +24,14 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    networks:
+        - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.qbit.rule=${QBIT_DOMAIN}"
+      - "traefik.http.routers.qbit.entrypoints=websecure"
+      - "traefik.http.routers.qbit.tls=true"
+      - "traefik.http.services.qbit.loadbalancer.server.port=8080"
 
 
   qbittorrent:
@@ -66,6 +74,14 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    networks:
+        - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jellyfin.rule=${JELLYFIN_DOMAIN}"
+      - "traefik.http.routers.jellyfin.entrypoints=websecure"
+      - "traefik.http.routers.jellyfin.tls=true"
+      - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
 
 
   sonarr:
@@ -87,6 +103,14 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    networks:
+        - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sonarr.rule=${SONARR_DOMAIN}"
+      - "traefik.http.routers.sonarr.entrypoints=websecure"
+      - "traefik.http.routers.sonarr.tls=true"
+      - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
 
 
   radarr:
@@ -108,6 +132,14 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    networks:
+        - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.radarr.rule=${RADARR_DOMAIN}"
+      - "traefik.http.routers.radarr.entrypoints=websecure"
+      - "traefik.http.routers.radarr.tls=true"
+      - "traefik.http.services.radarr.loadbalancer.server.port=7878"
 
 
   prowlarr:
@@ -127,6 +159,14 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    networks:
+        - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.prowlarr.rule=${PROWLARR_DOMAIN}"
+      - "traefik.http.routers.prowlarr.entrypoints=websecure"
+      - "traefik.http.routers.prowlarr.tls=true"
+      - "traefik.http.services.prowlarr.loadbalancer.server.port=9696"
 
 
   bazarr:
@@ -148,22 +188,16 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    networks:
+        - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.bazarr.rule=${BAZARR_DOMAIN}"
+      - "traefik.http.routers.bazarr.entrypoints=websecure"
+      - "traefik.http.routers.bazarr.tls=true"
+      - "traefik.http.services.bazarr.loadbalancer.server.port=6767"
 
-
-  caddy:
-    image: caddy:2
-    container_name: caddy
-    cap_add:
-      - NET_ADMIN
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./config/caddy:/etc/caddy
-    healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:80"]
-      interval: 30s
-      timeout: 5s
-      retries: 5
-    restart: unless-stopped
-
+networks:
+  traefik:
+    name: traefik
+    external: true

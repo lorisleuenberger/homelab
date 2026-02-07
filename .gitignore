@@ -11,6 +11,8 @@ collaboration/db
 collaboration/logs
 collaboration/.env
 
-pihole/.env
-pihole/etc-pihole/**
-!pihole/etc-pihole/pihole.toml
+network/.env
+network/traefik/dynamic/**
+!network/traefik/dynamic/tlx.yml
+network/etc-pihole/**
+!network/etc-pihole/pihole.toml
