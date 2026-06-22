@@ -187,6 +187,7 @@ services:
       - ./config/bazarr:/config
       - ${MEDIA_FOLDER:-./media}/downloads:/downloads
       - ${MEDIA_FOLDER:-./media}/movies:/movies
+      - ${MEDIA_FOLDER:-./media}/series:/series
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:6767"]
       interval: 30s
